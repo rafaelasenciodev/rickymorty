@@ -11,6 +11,7 @@
 		AF3E7E872BD26B5E006E6CFE /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF3E7E862BD26B5E006E6CFE /* ContentView.swift */; };
 		AF3E7E892BD26B61006E6CFE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AF3E7E882BD26B61006E6CFE /* Assets.xcassets */; };
 		AF3E7E8C2BD26B61006E6CFE /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AF3E7E8B2BD26B61006E6CFE /* Preview Assets.xcassets */; };
+		AF8277342BD28BF6008980B6 /* Character.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF8277332BD28BF6008980B6 /* Character.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +20,7 @@
 		AF3E7E862BD26B5E006E6CFE /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		AF3E7E882BD26B61006E6CFE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		AF3E7E8B2BD26B61006E6CFE /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		AF8277332BD28BF6008980B6 /* Character.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Character.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,6 +53,7 @@
 		AF3E7E832BD26B5E006E6CFE /* rickymorty */ = {
 			isa = PBXGroup;
 			children = (
+				AF8277312BD28BD5008980B6 /* Domain */,
 				AF3E7E842BD26B5E006E6CFE /* rickymortyApp.swift */,
 				AF3E7E862BD26B5E006E6CFE /* ContentView.swift */,
 				AF3E7E882BD26B61006E6CFE /* Assets.xcassets */,
@@ -65,6 +68,22 @@
 				AF3E7E8B2BD26B61006E6CFE /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		AF8277312BD28BD5008980B6 /* Domain */ = {
+			isa = PBXGroup;
+			children = (
+				AF8277322BD28BDA008980B6 /* Entities */,
+			);
+			path = Domain;
+			sourceTree = "<group>";
+		};
+		AF8277322BD28BDA008980B6 /* Entities */ = {
+			isa = PBXGroup;
+			children = (
+				AF8277332BD28BF6008980B6 /* Character.swift */,
+			);
+			path = Entities;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -137,6 +156,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AF8277342BD28BF6008980B6 /* Character.swift in Sources */,
 				AF3E7E872BD26B5E006E6CFE /* ContentView.swift in Sources */,
 				AF3E7E852BD26B5E006E6CFE /* rickymortyApp.swift in Sources */,
 			);
