@@ -29,10 +29,10 @@ ___________
 |-|:-:|
 |id|Int|
 |name|String|
-|status|Int|
-|species|Int|
-|origin|Int|
-|image|Int|
+|status|String|
+|species|String|
+|origin|String|
+|image|String|
 
 * Use Cases
 
