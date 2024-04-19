@@ -15,7 +15,13 @@
 		AF8277372BD28D15008980B6 /* GetCharacterListUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF8277362BD28D15008980B6 /* GetCharacterListUseCase.swift */; };
 		AF82773A2BD28E59008980B6 /* GetCharacterListRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF8277392BD28E59008980B6 /* GetCharacterListRepository.swift */; };
 		AF82773C2BD28E6D008980B6 /* CharacterDomainError.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF82773B2BD28E6D008980B6 /* CharacterDomainError.swift */; };
-		AF8277402BD28EBB008980B6 /* GetCharacterListRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF82773F2BD28EBB008980B6 /* GetCharacterListRepository.swift */; };
+		AF8277402BD28EBB008980B6 /* GetCharacterListRepositoryImp.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF82773F2BD28EBB008980B6 /* GetCharacterListRepositoryImp.swift */; };
+		AF8277432BD2B3C2008980B6 /* CharacterDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF8277422BD2B3C2008980B6 /* CharacterDTO.swift */; };
+		AF8277462BD2B44F008980B6 /* HTTPClientError.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF8277452BD2B44F008980B6 /* HTTPClientError.swift */; };
+		AF8277482BD2B474008980B6 /* APIDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF8277472BD2B474008980B6 /* APIDataSource.swift */; };
+		AF82774A2BD2BB35008980B6 /* CharacterDomainMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF8277492BD2BB35008980B6 /* CharacterDomainMapper.swift */; };
+		AF82774C2BD2BB5B008980B6 /* CharacterDomainErrorMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF82774B2BD2BB5B008980B6 /* CharacterDomainErrorMapper.swift */; };
+		AF8277512BD2BC0E008980B6 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF8277502BD2BC0E008980B6 /* Extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,7 +34,13 @@
 		AF8277362BD28D15008980B6 /* GetCharacterListUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetCharacterListUseCase.swift; sourceTree = "<group>"; };
 		AF8277392BD28E59008980B6 /* GetCharacterListRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetCharacterListRepository.swift; sourceTree = "<group>"; };
 		AF82773B2BD28E6D008980B6 /* CharacterDomainError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterDomainError.swift; sourceTree = "<group>"; };
-		AF82773F2BD28EBB008980B6 /* GetCharacterListRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetCharacterListRepository.swift; sourceTree = "<group>"; };
+		AF82773F2BD28EBB008980B6 /* GetCharacterListRepositoryImp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetCharacterListRepositoryImp.swift; sourceTree = "<group>"; };
+		AF8277422BD2B3C2008980B6 /* CharacterDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterDTO.swift; sourceTree = "<group>"; };
+		AF8277452BD2B44F008980B6 /* HTTPClientError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPClientError.swift; sourceTree = "<group>"; };
+		AF8277472BD2B474008980B6 /* APIDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIDataSource.swift; sourceTree = "<group>"; };
+		AF8277492BD2BB35008980B6 /* CharacterDomainMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterDomainMapper.swift; sourceTree = "<group>"; };
+		AF82774B2BD2BB5B008980B6 /* CharacterDomainErrorMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterDomainErrorMapper.swift; sourceTree = "<group>"; };
+		AF8277502BD2BC0E008980B6 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,6 +73,7 @@
 		AF3E7E832BD26B5E006E6CFE /* rickymorty */ = {
 			isa = PBXGroup;
 			children = (
+				AF82774D2BD2BB74008980B6 /* Utils */,
 				AF8277312BD28BD5008980B6 /* Domain */,
 				AF82773D2BD28E96008980B6 /* Data */,
 				AF3E7E842BD26B5E006E6CFE /* rickymortyApp.swift */,
@@ -86,6 +99,8 @@
 				AF8277352BD28CF4008980B6 /* Use Cases */,
 				AF8277322BD28BDA008980B6 /* Entities */,
 				AF82773B2BD28E6D008980B6 /* CharacterDomainError.swift */,
+				AF8277492BD2BB35008980B6 /* CharacterDomainMapper.swift */,
+				AF82774B2BD2BB5B008980B6 /* CharacterDomainErrorMapper.swift */,
 			);
 			path = Domain;
 			sourceTree = "<group>";
@@ -117,6 +132,8 @@
 		AF82773D2BD28E96008980B6 /* Data */ = {
 			isa = PBXGroup;
 			children = (
+				AF8277442BD2B449008980B6 /* Networking */,
+				AF8277412BD2B3B6008980B6 /* DTOs */,
 				AF82773E2BD28E9A008980B6 /* Repositories */,
 			);
 			path = Data;
@@ -125,9 +142,34 @@
 		AF82773E2BD28E9A008980B6 /* Repositories */ = {
 			isa = PBXGroup;
 			children = (
-				AF82773F2BD28EBB008980B6 /* GetCharacterListRepository.swift */,
+				AF82773F2BD28EBB008980B6 /* GetCharacterListRepositoryImp.swift */,
 			);
 			path = Repositories;
+			sourceTree = "<group>";
+		};
+		AF8277412BD2B3B6008980B6 /* DTOs */ = {
+			isa = PBXGroup;
+			children = (
+				AF8277422BD2B3C2008980B6 /* CharacterDTO.swift */,
+			);
+			path = DTOs;
+			sourceTree = "<group>";
+		};
+		AF8277442BD2B449008980B6 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				AF8277452BD2B44F008980B6 /* HTTPClientError.swift */,
+				AF8277472BD2B474008980B6 /* APIDataSource.swift */,
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
+		AF82774D2BD2BB74008980B6 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				AF8277502BD2BC0E008980B6 /* Extensions.swift */,
+			);
+			path = Utils;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -200,13 +242,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AF8277462BD2B44F008980B6 /* HTTPClientError.swift in Sources */,
 				AF8277342BD28BF6008980B6 /* Character.swift in Sources */,
+				AF82774C2BD2BB5B008980B6 /* CharacterDomainErrorMapper.swift in Sources */,
+				AF82774A2BD2BB35008980B6 /* CharacterDomainMapper.swift in Sources */,
+				AF8277432BD2B3C2008980B6 /* CharacterDTO.swift in Sources */,
 				AF3E7E872BD26B5E006E6CFE /* ContentView.swift in Sources */,
-				AF8277402BD28EBB008980B6 /* GetCharacterListRepository.swift in Sources */,
+				AF8277402BD28EBB008980B6 /* GetCharacterListRepositoryImp.swift in Sources */,
 				AF82773C2BD28E6D008980B6 /* CharacterDomainError.swift in Sources */,
+				AF8277512BD2BC0E008980B6 /* Extensions.swift in Sources */,
 				AF8277372BD28D15008980B6 /* GetCharacterListUseCase.swift in Sources */,
 				AF82773A2BD28E59008980B6 /* GetCharacterListRepository.swift in Sources */,
 				AF3E7E852BD26B5E006E6CFE /* rickymortyApp.swift in Sources */,
+				AF8277482BD2B474008980B6 /* APIDataSource.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
