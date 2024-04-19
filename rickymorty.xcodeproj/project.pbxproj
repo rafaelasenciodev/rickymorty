@@ -15,6 +15,7 @@
 		AF8277372BD28D15008980B6 /* GetCharacterListUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF8277362BD28D15008980B6 /* GetCharacterListUseCase.swift */; };
 		AF82773A2BD28E59008980B6 /* GetCharacterListRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF8277392BD28E59008980B6 /* GetCharacterListRepository.swift */; };
 		AF82773C2BD28E6D008980B6 /* CharacterDomainError.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF82773B2BD28E6D008980B6 /* CharacterDomainError.swift */; };
+		AF8277402BD28EBB008980B6 /* GetCharacterListRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF82773F2BD28EBB008980B6 /* GetCharacterListRepository.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,6 +28,7 @@
 		AF8277362BD28D15008980B6 /* GetCharacterListUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetCharacterListUseCase.swift; sourceTree = "<group>"; };
 		AF8277392BD28E59008980B6 /* GetCharacterListRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetCharacterListRepository.swift; sourceTree = "<group>"; };
 		AF82773B2BD28E6D008980B6 /* CharacterDomainError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterDomainError.swift; sourceTree = "<group>"; };
+		AF82773F2BD28EBB008980B6 /* GetCharacterListRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetCharacterListRepository.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +62,7 @@
 			isa = PBXGroup;
 			children = (
 				AF8277312BD28BD5008980B6 /* Domain */,
+				AF82773D2BD28E96008980B6 /* Data */,
 				AF3E7E842BD26B5E006E6CFE /* rickymortyApp.swift */,
 				AF3E7E862BD26B5E006E6CFE /* ContentView.swift */,
 				AF3E7E882BD26B61006E6CFE /* Assets.xcassets */,
@@ -109,6 +112,22 @@
 				AF8277392BD28E59008980B6 /* GetCharacterListRepository.swift */,
 			);
 			path = Interfaces;
+			sourceTree = "<group>";
+		};
+		AF82773D2BD28E96008980B6 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				AF82773E2BD28E9A008980B6 /* Repositories */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		AF82773E2BD28E9A008980B6 /* Repositories */ = {
+			isa = PBXGroup;
+			children = (
+				AF82773F2BD28EBB008980B6 /* GetCharacterListRepository.swift */,
+			);
+			path = Repositories;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -183,6 +202,7 @@
 			files = (
 				AF8277342BD28BF6008980B6 /* Character.swift in Sources */,
 				AF3E7E872BD26B5E006E6CFE /* ContentView.swift in Sources */,
+				AF8277402BD28EBB008980B6 /* GetCharacterListRepository.swift in Sources */,
 				AF82773C2BD28E6D008980B6 /* CharacterDomainError.swift in Sources */,
 				AF8277372BD28D15008980B6 /* GetCharacterListUseCase.swift in Sources */,
 				AF82773A2BD28E59008980B6 /* GetCharacterListRepository.swift in Sources */,
