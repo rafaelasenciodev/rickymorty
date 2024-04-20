@@ -15,7 +15,7 @@ class CharacterDomainMapper {
                       name: $0.name ?? "",
                       status: $0.status ?? "",
                       species: $0.species ?? "",
-                      origin: $0.origin ?? "",
+                      origin: .init(name: $0.origin?.name ?? "", url: $0.origin?.url ?? ""),
                       image: $0.image ?? "")
         }
     }

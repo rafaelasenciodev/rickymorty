@@ -12,6 +12,6 @@ struct CharacterDTO: Decodable {
     let name: String?
     let status: String?
     let species: String?
-    let origin: String?
+    let origin: OriginDTO?
     let image: String?
 }

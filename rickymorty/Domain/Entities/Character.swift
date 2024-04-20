@@ -12,6 +12,6 @@ struct Character: Identifiable {
     let name: String
     let status: String
     let species: String
-    let origin: String
+    let origin: Origin
     let image: String
 }
