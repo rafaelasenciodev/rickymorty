@@ -10,3 +10,34 @@ import Foundation
 protocol APIDataSource {
     func loadCharacters() async -> Result<[CharacterDTO], HTTPClientError>
 }
+
+protocol HTTPClient {
+    func makeRequest(request: String) async -> Result<Data, HTTPClientError>
+}
+
+final class APICharactersDataSource: APIDataSource {
+    
+    private let client: HTTPClient
+    init(client: HTTPClient) {
+        self.client = client
+    }
+    
+    func loadCharacters() async -> Result<[CharacterDTO], HTTPClientError> {
+        let endpoint = "https://rickandmortyapi.com/api/character"
+        
+        let response = await client.makeRequest(request: endpoint)
+        guard case .success(let data) = response else { 
+            return .failure(handleError(error: response.failureValue as? HTTPClientError))
+        }
+        
+        guard let response = try? JSONDecoder().decode(CharacterResponseDTO.self, from: data) else {
+            return .failure(.decodingError)
+        }
+        
+        return  .success(response.results)
+    }
+    
+    private func handleError(error: HTTPClientError?) -> HTTPClientError {
+        return error ?? .generic
+    }
+}

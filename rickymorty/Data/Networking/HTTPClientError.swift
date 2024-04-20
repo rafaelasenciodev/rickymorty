@@ -10,4 +10,9 @@ import Foundation
 enum HTTPClientError: Error {
     case clientError
     case serverError
+    case decodingError
+    case invalidURL
+    case invalidResponse
+    case invalidStatusCode(code: Int)
+    case generic
 }

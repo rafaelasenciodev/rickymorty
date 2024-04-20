@@ -10,7 +10,7 @@ import Foundation
 final class GetCharacterListUseCase {
     
     private let repository: GetCharacterListRepository
-    init(repository: GetCharacterListRepository) {
+    init(repository: GetCharacterListRepository = GetCharacterListRepositoryImp(dataSource: APICharactersDataSource(client: URLSessionHTTPClient()), domainMapper: CharacterDomainMapper(), errorMapper: CharacterDomainErrorMapper())) {
         self.repository = repository
     }
     
