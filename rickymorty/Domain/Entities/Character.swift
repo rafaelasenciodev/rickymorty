@@ -14,4 +14,8 @@ struct Character: Identifiable {
     let species: String
     let origin: Origin
     let image: String
+    
+    var isAlive: Bool {
+        return status == "Alive"
+    }
 }
