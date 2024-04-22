@@ -9,7 +9,7 @@ import SwiftUI
 
 struct CharacterViewCell: View {
     
-    let character: Character
+    let item: CharacterPresentableItem
     
     var body: some View {
         ZStack(alignment: .bottom) {
@@ -22,7 +22,7 @@ struct CharacterViewCell: View {
     }
     
     var backgroundImage: some View {
-        AsyncImage(url: URL(string: character.image)) { image in
+        AsyncImage(url: item.imageURL) { image in
             image.resizable()
         } placeholder: {
             ProgressView()
@@ -43,10 +43,8 @@ struct CharacterViewCell: View {
     var descriptionInfo: some View {
         HStack {
             VStack(alignment: .leading) {
-                Text(character.name)
+                Text(item.name)
                     .font(.title2).bold()
-                    .foregroundStyle(.white)
-                Text(character.origin.name)
                     .foregroundStyle(.white)
                     .frame(maxWidth: .infinity, alignment: .leading)
             }
@@ -60,11 +58,11 @@ struct CharacterViewCell: View {
     
     var statusIndicator: some View {
         Circle()
-            .fill(character.isAlive ? .green : .red)
+            .fill(item.statusColor)
             .frame(width: 15, height: 15)
     }
 }
 
 #Preview {
-    CharacterViewCell(character: .init(id: 1, name: "Rick", status: "Alive", species: "", origin: .init(name: "Earth", url: ""), image: "https://rickandmortyapi.com/api/character/avatar/1.jpeg"))
+    CharacterViewCell(item: .init(character: .init(id: 1, name: "Rick", status: "Alive", species: "", origin: .init(name: "Earth", url: ""), image: "https://rickandmortyapi.com/api/character/avatar/1.jpeg")))
 }
