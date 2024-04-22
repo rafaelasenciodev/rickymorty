@@ -26,6 +26,7 @@ struct CharacterViewCell: View {
             image.resizable()
         } placeholder: {
             ProgressView()
+                .frame(maxWidth: .infinity, maxHeight: .infinity)
         }
         .scaledToFill()
         .frame(height: 300)
