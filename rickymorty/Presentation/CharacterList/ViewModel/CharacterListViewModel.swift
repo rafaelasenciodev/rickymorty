@@ -11,7 +11,9 @@ import SwiftUI
     
     var characters: [Character] = []
     var isLoading: Bool = false
+    var showError: Bool = false
     var errorMessage: String?
+    private var currentPage: Int = 1
     
     private let useCase: GetCharacterListUseCase
     init(useCase: GetCharacterListUseCase = GetCharacterListUseCase()) {
@@ -20,15 +22,19 @@ import SwiftUI
     
     @MainActor
     func loadCharacters() {
-        self.isLoading = false
+        guard !isLoading else { return }
+        self.isLoading = true
+        self.showError = false
         Task {
-            let result = await useCase.execute()
+            let result = await useCase.execute(page: "\(currentPage)")
             switch result {
             case .success(let characters):
                 self.isLoading = false
-                self.characters = characters
+                self.characters += characters
+                self.currentPage += 1
             case .failure(let error):
                 self.isLoading = false
+                self.showError = true
                 self.errorMessage = error.localizedDescription
             }
         }
