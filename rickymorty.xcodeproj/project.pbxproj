@@ -12,6 +12,7 @@
 		AF2F45A02BD3F6A600E630AE /* OriginDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF2F459F2BD3F6A600E630AE /* OriginDTO.swift */; };
 		AF2F45A22BD3F7AB00E630AE /* Origin.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF2F45A12BD3F7AB00E630AE /* Origin.swift */; };
 		AF2F45A62BD4224500E630AE /* CharacterListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF2F45A52BD4224500E630AE /* CharacterListViewModel.swift */; };
+		AF2F45AC2BD6521200E630AE /* CharacterViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF2F45AB2BD6521200E630AE /* CharacterViewCell.swift */; };
 		AF3E7E852BD26B5E006E6CFE /* rickymortyApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF3E7E842BD26B5E006E6CFE /* rickymortyApp.swift */; };
 		AF3E7E872BD26B5E006E6CFE /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF3E7E862BD26B5E006E6CFE /* ContentView.swift */; };
 		AF3E7E892BD26B61006E6CFE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AF3E7E882BD26B61006E6CFE /* Assets.xcassets */; };
@@ -35,6 +36,7 @@
 		AF2F459F2BD3F6A600E630AE /* OriginDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OriginDTO.swift; sourceTree = "<group>"; };
 		AF2F45A12BD3F7AB00E630AE /* Origin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Origin.swift; sourceTree = "<group>"; };
 		AF2F45A52BD4224500E630AE /* CharacterListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterListViewModel.swift; sourceTree = "<group>"; };
+		AF2F45AB2BD6521200E630AE /* CharacterViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterViewCell.swift; sourceTree = "<group>"; };
 		AF3E7E812BD26B5E006E6CFE /* rickymorty.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = rickymorty.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AF3E7E842BD26B5E006E6CFE /* rickymortyApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = rickymortyApp.swift; sourceTree = "<group>"; };
 		AF3E7E862BD26B5E006E6CFE /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -103,6 +105,14 @@
 				AF2F45A52BD4224500E630AE /* CharacterListViewModel.swift */,
 			);
 			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		AF2F45A82BD422D900E630AE /* View */ = {
+			isa = PBXGroup;
+			children = (
+				AF2F45AB2BD6521200E630AE /* CharacterViewCell.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		AF3E7E782BD26B5E006E6CFE = {
@@ -311,6 +321,7 @@
 				AF2F45A02BD3F6A600E630AE /* OriginDTO.swift in Sources */,
 				AF8277512BD2BC0E008980B6 /* Extensions.swift in Sources */,
 				AF8277372BD28D15008980B6 /* GetCharacterListUseCase.swift in Sources */,
+				AF2F45AC2BD6521200E630AE /* CharacterViewCell.swift in Sources */,
 				AF2F459E2BD2CD6E00E630AE /* URLSessionHTTPClient.swift in Sources */,
 				AF82773A2BD28E59008980B6 /* GetCharacterListRepository.swift in Sources */,
 				AF3E7E852BD26B5E006E6CFE /* rickymortyApp.swift in Sources */,
