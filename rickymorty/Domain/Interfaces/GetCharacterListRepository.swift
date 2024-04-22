@@ -8,5 +8,5 @@
 import Foundation
 
 protocol GetCharacterListRepository {
-    func loadCharacters() async -> Result<[Character], CharacterDomainError>
+    func loadCharacters(page: String) async -> Result<[Character], CharacterDomainError>
 }
