@@ -11,6 +11,7 @@ struct CharacterListView: View {
     
     @Bindable var vm: CharacterListViewModel
     @State var contentHasScrolled = false
+    @State var selectedCharacter: Character?
     
     var body: some View {
         ZStack {
@@ -62,10 +63,16 @@ struct CharacterListView: View {
     }
     
     var characterListView: some View {
-        ForEach(vm.characters) { character in
-            CharacterViewCell(character: character)
-                .frame(height: 300)
-            .padding(.horizontal, 12)
+        ForEach(vm.characters, id: \.id) { ch in
+            
+            CharacterViewCell(item: CharacterPresentableItem(character: ch))
+                .padding(.horizontal, 12)
+                .onTapGesture {
+                    selectedCharacter = ch
+                }
+        }
+        .sheet(item: $selectedCharacter) { selectedCharacter in
+            CharacterDetailView(item: .init(character: selectedCharacter))
         }
     }
 }
