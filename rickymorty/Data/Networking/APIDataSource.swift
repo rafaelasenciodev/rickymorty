@@ -18,12 +18,14 @@ protocol HTTPClient {
 final class APICharactersDataSource: APIDataSource {
     
     private let client: HTTPClient
-    init(client: HTTPClient) {
+    private let url: String
+    init(client: HTTPClient, url: String = "https://rickandmortyapi.com/api/character") {
         self.client = client
+        self.url = url
     }
     
     func loadCharacters(page: String, name: String? = nil) async -> Result<[CharacterDTO], HTTPClientError> {
-        var endpoint = "https://rickandmortyapi.com/api/character" //+ "/?page=\(page)"
+        var endpoint = url
         if let name = name {
             endpoint.append("?name=\(name)")
             endpoint.append("&page=\(page)")
