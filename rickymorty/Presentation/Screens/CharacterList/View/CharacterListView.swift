@@ -12,6 +12,11 @@ struct CharacterListView: View {
     @Bindable var vm: CharacterListViewModel
     @State var contentHasScrolled = false
     @State var selectedCharacter: Character?
+    @State private var searchText: String = ""
+    
+    private var charactersResult: [Character] {
+        vm.characters
+    }
     
     var body: some View {
         ZStack {
@@ -24,6 +29,14 @@ struct CharacterListView: View {
             scrollView
         }
         .navigationTitle("Characters")
+        .navigationBarTitleDisplayMode(.inline)
+        .searchable(text: $searchText)
+        .onChange(of: searchText, { oldValue, newValue in
+            searchCharacter(by: newValue)
+        })
+        .sheet(item: $selectedCharacter) { selectedCharacter in
+            CharacterDetailView(item: .init(character: selectedCharacter))
+        }
         .alert("\(vm.errorMessage ?? "")", isPresented: $vm.showError, actions: {
             Button(role: .cancel) {
                 
@@ -50,11 +63,15 @@ struct CharacterListView: View {
         }
         .onPreferenceChange(ScrollPreferenceKey.self, perform: { value in
             withAnimation(.easeInOut) {
-                let estimatedContentHeight = CGFloat(vm.characters.count * 300)
+                let estimatedContentHeight = CGFloat(charactersResult.count * 300)
                 let threshold = 0.8 * estimatedContentHeight
                 if value <= -threshold {
                     Task {
-                        await vm.loadCharacters()
+                        if searchText.isEmpty {
+                            await vm.loadCharacters()
+                        } else {
+                            await self.vm.searchCharacter(by: searchText, isFirstLoad: false)
+                        }
                     }
                 }
                 contentHasScrolled = value < 0
@@ -63,17 +80,31 @@ struct CharacterListView: View {
     }
     
     var characterListView: some View {
-        ForEach(vm.characters, id: \.id) { ch in
+        ForEach(Array(charactersResult.enumerated()), id: \.offset) { index, character in
             
-            CharacterViewCell(item: CharacterPresentableItem(character: ch))
+            CharacterViewCell(item: CharacterPresentableItem(character: character))
                 .padding(.horizontal, 12)
                 .onTapGesture {
-                    selectedCharacter = ch
+                    selectedCharacter = character
                 }
+            if vm.isLoading {
+                ProgressView()
+                    .tint(.orange)
+            }
         }
-        .sheet(item: $selectedCharacter) { selectedCharacter in
-            CharacterDetailView(item: .init(character: selectedCharacter))
+    }
+    
+    @MainActor
+    private func searchCharacter(by name: String) {
+        vm.workItem?.cancel()
+        let task = DispatchWorkItem { [weak vm] in
+            guard let viewModel = vm else { return }
+            Task {
+                await viewModel.searchCharacter(by: name, isFirstLoad: true)
+            }
         }
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5, execute: task)
+        vm.workItem = task
     }
 }
 

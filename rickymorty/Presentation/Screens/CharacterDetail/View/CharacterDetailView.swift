@@ -48,8 +48,6 @@ struct CharacterPresentableItem {
 }
 struct CharacterDetailView: View {
     
-    @Environment(\.dismiss) var dismiss
-    
     var item: CharacterPresentableItem
     
     var body: some View {
@@ -84,20 +82,6 @@ struct CharacterDetailView: View {
                 
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .leading)
-            .toolbar(content: {
-                ToolbarItem(placement: .topBarLeading) {
-                    Image(systemName: "chevron.left")
-                        .bold()
-                        .frame(width: 20, height: 20)
-                        .padding(4)
-                        .background(.gray.opacity(0.3))
-                        .clipShape(Circle())
-                        .tint(.white)
-                        .onTapGesture {
-                            dismiss()
-                        }
-                }
-            })
             .padding()
         }
         .toolbar(.hidden, for: .navigationBar)
@@ -113,7 +97,7 @@ struct CharacterDetailView: View {
         .scaledToFill()
     }
 }
-//
-//#Preview {
-//    CharacterDetailView(image: .init(string: "https://rickandmortyapi.com/api/character/avatar/1.jpeg"), name: "Rick", status: "", species: "", isAlive: false)
-//}
+
+#Preview {
+    CharacterDetailView(item: .init(character: Character(id: 1, name: "Rick", status: "Alive", species: "Human", origin: .init(name: "", url: ""), image: "https://rickandmortyapi.com/api/character/avatar/1.jpeg")))
+}

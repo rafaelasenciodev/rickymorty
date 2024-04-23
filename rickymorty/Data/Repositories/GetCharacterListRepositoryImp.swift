@@ -21,8 +21,8 @@ final class GetCharacterListRepositoryImp: GetCharacterListRepository {
         self.errorMapper = errorMapper
     }
     
-    func loadCharacters(page: String) async -> Result<[Character], CharacterDomainError> {
-        let characterListResult = await dataSource.loadCharacters(page: page)
+    func loadCharacters(page: String, name: String? = nil) async -> Result<[Character], CharacterDomainError> {
+        let characterListResult = await dataSource.loadCharacters(page: page, name: name)
         
         guard case .success(let characterList) = characterListResult else {
             return .failure(errorMapper.map(error: characterListResult.failureValue as? HTTPClientError))

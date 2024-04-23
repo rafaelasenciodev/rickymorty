@@ -8,7 +8,7 @@
 import Foundation
 
 protocol APIDataSource {
-    func loadCharacters(page: String) async -> Result<[CharacterDTO], HTTPClientError>
+    func loadCharacters(page: String, name: String?) async -> Result<[CharacterDTO], HTTPClientError>
 }
 
 protocol HTTPClient {
@@ -22,9 +22,15 @@ final class APICharactersDataSource: APIDataSource {
         self.client = client
     }
     
-    func loadCharacters(page: String) async -> Result<[CharacterDTO], HTTPClientError> {
-        print(page)
-        let endpoint = "https://rickandmortyapi.com/api/character" + "/?page=\(page)"
+    func loadCharacters(page: String, name: String? = nil) async -> Result<[CharacterDTO], HTTPClientError> {
+        var endpoint = "https://rickandmortyapi.com/api/character" //+ "/?page=\(page)"
+        if let name = name {
+            endpoint.append("?name=\(name)")
+            endpoint.append("&page=\(page)")
+        } else {
+            endpoint.append("?page=\(page)")
+        }
+        
         
         let response = await client.makeRequest(request: endpoint)
         guard case .success(let data) = response else { 
