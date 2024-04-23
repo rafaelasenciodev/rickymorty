@@ -16,7 +16,7 @@
 		AF2F45AC2BD6521200E630AE /* CharacterViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF2F45AB2BD6521200E630AE /* CharacterViewCell.swift */; };
 		AF2F45AF2BD65B6700E630AE /* ScrollPreferenceKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF2F45AE2BD65B6700E630AE /* ScrollPreferenceKey.swift */; };
 		AF2F45B42BD679EC00E630AE /* CharacterDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF2F45B32BD679EC00E630AE /* CharacterDetailView.swift */; };
-		AF2F45BC2BD7D9CA00E630AE /* rickymortyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF2F45BB2BD7D9CA00E630AE /* rickymortyTests.swift */; };
+		AF2F45C82BD7FD2E00E630AE /* CharacterListMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF2F45C72BD7FD2E00E630AE /* CharacterListMock.swift */; };
 		AF3E7E852BD26B5E006E6CFE /* rickymortyApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF3E7E842BD26B5E006E6CFE /* rickymortyApp.swift */; };
 		AF3E7E872BD26B5E006E6CFE /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF3E7E862BD26B5E006E6CFE /* ContentView.swift */; };
 		AF3E7E892BD26B61006E6CFE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AF3E7E882BD26B61006E6CFE /* Assets.xcassets */; };
@@ -55,7 +55,7 @@
 		AF2F45AE2BD65B6700E630AE /* ScrollPreferenceKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollPreferenceKey.swift; sourceTree = "<group>"; };
 		AF2F45B32BD679EC00E630AE /* CharacterDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterDetailView.swift; sourceTree = "<group>"; };
 		AF2F45B92BD7D9CA00E630AE /* rickymortyTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = rickymortyTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		AF2F45BB2BD7D9CA00E630AE /* rickymortyTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = rickymortyTests.swift; sourceTree = "<group>"; };
+		AF2F45C72BD7FD2E00E630AE /* CharacterListMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterListMock.swift; sourceTree = "<group>"; };
 		AF3E7E812BD26B5E006E6CFE /* rickymorty.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = rickymorty.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AF3E7E842BD26B5E006E6CFE /* rickymortyApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = rickymortyApp.swift; sourceTree = "<group>"; };
 		AF3E7E862BD26B5E006E6CFE /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -179,9 +179,16 @@
 		AF2F45BA2BD7D9CA00E630AE /* rickymortyTests */ = {
 			isa = PBXGroup;
 			children = (
-				AF2F45BB2BD7D9CA00E630AE /* rickymortyTests.swift */,
 			);
 			path = rickymortyTests;
+			sourceTree = "<group>";
+		};
+		AF2F45C62BD7FD0600E630AE /* RawData */ = {
+			isa = PBXGroup;
+			children = (
+				AF2F45C72BD7FD2E00E630AE /* CharacterListMock.swift */,
+			);
+			path = RawData;
 			sourceTree = "<group>";
 		};
 		AF3E7E782BD26B5E006E6CFE = {
@@ -409,7 +416,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AF2F45BC2BD7D9CA00E630AE /* rickymortyTests.swift in Sources */,
+				AF2F45C82BD7FD2E00E630AE /* CharacterListMock.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
