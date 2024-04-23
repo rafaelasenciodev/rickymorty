@@ -16,6 +16,7 @@
 		AF2F45AC2BD6521200E630AE /* CharacterViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF2F45AB2BD6521200E630AE /* CharacterViewCell.swift */; };
 		AF2F45AF2BD65B6700E630AE /* ScrollPreferenceKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF2F45AE2BD65B6700E630AE /* ScrollPreferenceKey.swift */; };
 		AF2F45B42BD679EC00E630AE /* CharacterDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF2F45B32BD679EC00E630AE /* CharacterDetailView.swift */; };
+		AF2F45BC2BD7D9CA00E630AE /* rickymortyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF2F45BB2BD7D9CA00E630AE /* rickymortyTests.swift */; };
 		AF3E7E852BD26B5E006E6CFE /* rickymortyApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF3E7E842BD26B5E006E6CFE /* rickymortyApp.swift */; };
 		AF3E7E872BD26B5E006E6CFE /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF3E7E862BD26B5E006E6CFE /* ContentView.swift */; };
 		AF3E7E892BD26B61006E6CFE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AF3E7E882BD26B61006E6CFE /* Assets.xcassets */; };
@@ -33,6 +34,16 @@
 		AF8277512BD2BC0E008980B6 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF8277502BD2BC0E008980B6 /* Extensions.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		AF2F45BD2BD7D9CA00E630AE /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = AF3E7E792BD26B5E006E6CFE /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = AF3E7E802BD26B5E006E6CFE;
+			remoteInfo = rickymorty;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
 		AF2F45992BD2CAC600E630AE /* CharacterResponseDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterResponseDTO.swift; sourceTree = "<group>"; };
 		AF2F459D2BD2CD6E00E630AE /* URLSessionHTTPClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionHTTPClient.swift; sourceTree = "<group>"; };
@@ -43,6 +54,8 @@
 		AF2F45AB2BD6521200E630AE /* CharacterViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterViewCell.swift; sourceTree = "<group>"; };
 		AF2F45AE2BD65B6700E630AE /* ScrollPreferenceKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollPreferenceKey.swift; sourceTree = "<group>"; };
 		AF2F45B32BD679EC00E630AE /* CharacterDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterDetailView.swift; sourceTree = "<group>"; };
+		AF2F45B92BD7D9CA00E630AE /* rickymortyTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = rickymortyTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		AF2F45BB2BD7D9CA00E630AE /* rickymortyTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = rickymortyTests.swift; sourceTree = "<group>"; };
 		AF3E7E812BD26B5E006E6CFE /* rickymorty.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = rickymorty.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AF3E7E842BD26B5E006E6CFE /* rickymortyApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = rickymortyApp.swift; sourceTree = "<group>"; };
 		AF3E7E862BD26B5E006E6CFE /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -62,6 +75,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		AF2F45B62BD7D9CA00E630AE /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		AF3E7E7E2BD26B5E006E6CFE /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -156,10 +176,19 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		AF2F45BA2BD7D9CA00E630AE /* rickymortyTests */ = {
+			isa = PBXGroup;
+			children = (
+				AF2F45BB2BD7D9CA00E630AE /* rickymortyTests.swift */,
+			);
+			path = rickymortyTests;
+			sourceTree = "<group>";
+		};
 		AF3E7E782BD26B5E006E6CFE = {
 			isa = PBXGroup;
 			children = (
 				AF3E7E832BD26B5E006E6CFE /* rickymorty */,
+				AF2F45BA2BD7D9CA00E630AE /* rickymortyTests */,
 				AF3E7E822BD26B5E006E6CFE /* Products */,
 			);
 			sourceTree = "<group>";
@@ -168,6 +197,7 @@
 			isa = PBXGroup;
 			children = (
 				AF3E7E812BD26B5E006E6CFE /* rickymorty.app */,
+				AF2F45B92BD7D9CA00E630AE /* rickymortyTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -282,6 +312,24 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		AF2F45B82BD7D9CA00E630AE /* rickymortyTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AF2F45C12BD7D9CA00E630AE /* Build configuration list for PBXNativeTarget "rickymortyTests" */;
+			buildPhases = (
+				AF2F45B52BD7D9CA00E630AE /* Sources */,
+				AF2F45B62BD7D9CA00E630AE /* Frameworks */,
+				AF2F45B72BD7D9CA00E630AE /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				AF2F45BE2BD7D9CA00E630AE /* PBXTargetDependency */,
+			);
+			name = rickymortyTests;
+			productName = rickymortyTests;
+			productReference = AF2F45B92BD7D9CA00E630AE /* rickymortyTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		AF3E7E802BD26B5E006E6CFE /* rickymorty */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = AF3E7E8F2BD26B61006E6CFE /* Build configuration list for PBXNativeTarget "rickymorty" */;
@@ -309,6 +357,10 @@
 				LastSwiftUpdateCheck = 1530;
 				LastUpgradeCheck = 1530;
 				TargetAttributes = {
+					AF2F45B82BD7D9CA00E630AE = {
+						CreatedOnToolsVersion = 15.3;
+						TestTargetID = AF3E7E802BD26B5E006E6CFE;
+					};
 					AF3E7E802BD26B5E006E6CFE = {
 						CreatedOnToolsVersion = 15.3;
 					};
@@ -328,11 +380,19 @@
 			projectRoot = "";
 			targets = (
 				AF3E7E802BD26B5E006E6CFE /* rickymorty */,
+				AF2F45B82BD7D9CA00E630AE /* rickymortyTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		AF2F45B72BD7D9CA00E630AE /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		AF3E7E7F2BD26B5E006E6CFE /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -345,6 +405,14 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		AF2F45B52BD7D9CA00E630AE /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AF2F45BC2BD7D9CA00E630AE /* rickymortyTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		AF3E7E7D2BD26B5E006E6CFE /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -376,7 +444,51 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		AF2F45BE2BD7D9CA00E630AE /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = AF3E7E802BD26B5E006E6CFE /* rickymorty */;
+			targetProxy = AF2F45BD2BD7D9CA00E630AE /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin XCBuildConfiguration section */
+		AF2F45BF2BD7D9CA00E630AE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 49P6CUFMC5;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.rafaelasencio.rickymortyTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/rickymorty.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/rickymorty";
+			};
+			name = Debug;
+		};
+		AF2F45C02BD7D9CA00E630AE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 49P6CUFMC5;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.rafaelasencio.rickymortyTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/rickymorty.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/rickymorty";
+			};
+			name = Release;
+		};
 		AF3E7E8D2BD26B61006E6CFE /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -557,6 +669,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		AF2F45C12BD7D9CA00E630AE /* Build configuration list for PBXNativeTarget "rickymortyTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AF2F45BF2BD7D9CA00E630AE /* Debug */,
+				AF2F45C02BD7D9CA00E630AE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		AF3E7E7C2BD26B5E006E6CFE /* Build configuration list for PBXProject "rickymorty" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
