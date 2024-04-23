@@ -8,5 +8,6 @@
 import Foundation
 
 enum CharacterDomainError: Error {
+    case decodingError
     case generic
 }

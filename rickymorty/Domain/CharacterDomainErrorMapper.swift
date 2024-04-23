@@ -9,6 +9,11 @@ import Foundation
 
 class CharacterDomainErrorMapper {
     func map(error: HTTPClientError?) -> CharacterDomainError {
-        return .generic
+        switch error {
+        case .decodingError:
+            return .decodingError
+        default:
+            return .generic
+        }
     }
 }
