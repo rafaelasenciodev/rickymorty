@@ -14,8 +14,21 @@ final class GetCharacterListUseCase {
         self.repository = repository
     }
     
-    func execute(page: String) async -> Result<[Character], CharacterDomainError> {
-        let result = await repository.loadCharacters(page: page)
+    func loadCharacters(page: String) async -> Result<[Character], CharacterDomainError> {
+        let result = await repository.loadCharacters(page: page, name: nil)
+        
+        guard let characterList = try? result.get() else {
+            guard case .failure(let error) = result else {
+                return .failure(.generic)
+            }
+            return .failure(error)
+        }
+        
+        return .success(characterList)
+    }
+    
+    func searchCharacters(withName name: String, and page: String) async -> Result<[Character], CharacterDomainError> {
+        let result = await repository.loadCharacters(page: page, name: name)
         
         guard let characterList = try? result.get() else {
             guard case .failure(let error) = result else {
