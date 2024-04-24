@@ -23,11 +23,15 @@ final class CharacterListUseCaseTests: XCTestCase {
     }
     
     func test_loadCharactersSucceeds() async {
+        // Given
         sut = GetCharacterListUseCase(repository:
                                         GetCharacterListRepositoryImp(dataSource: APICharactersDataSource(client: HTTPClientMockCharacterListSuccess()),
                                                                       domainMapper: CharacterDomainMapper(),
                                                                       errorMapper: CharacterDomainErrorMapper()))
+        // When
         let result = await sut.loadCharacters(page: "1")
+        
+        // Then
         switch result {
         case .success(let characters):
             XCTAssertEqual(1, characters.first?.id)
@@ -38,12 +42,16 @@ final class CharacterListUseCaseTests: XCTestCase {
     
     
     func test_searchCharacterByNameSucceeds() async {
+        // Given
         sut = GetCharacterListUseCase(repository:
                                         GetCharacterListRepositoryImp(dataSource: APICharactersDataSource(client: HTTPClientMockSearchCharacterListSuccess()),
                                                                       domainMapper: CharacterDomainMapper(),
                                                                       errorMapper: CharacterDomainErrorMapper()))
         
+        // When
         let result = await sut.searchCharacters(withName: "Morty", and: "1")
+        
+        // Then
         switch result {
         case .success(let characters):
             XCTAssertEqual(2, characters.first?.id)
@@ -54,12 +62,15 @@ final class CharacterListUseCaseTests: XCTestCase {
     }
     
     func test_unexistingCharacterReturnsEmptyList() async {
+        // Given
         sut = GetCharacterListUseCase(repository:
                                         GetCharacterListRepositoryImp(dataSource: APICharactersDataSource(client: HTTPClientMockSearchCharacterEmptyList()),
                                                                       domainMapper: CharacterDomainMapper(),
                                                                       errorMapper: CharacterDomainErrorMapper()))
-        
+        // When
         let result = await sut.searchCharacters(withName: "unexsiting character", and: "1")
+        
+        // Then
         switch result {
         case .success(let characters):
             XCTAssertTrue(characters.isEmpty)
@@ -67,27 +78,4 @@ final class CharacterListUseCaseTests: XCTestCase {
             XCTFail("Expected success, got \(error.localizedDescription)")
         }
     }
-
-    
-//    func test_getCharacterListFailsWithParsedError() async {
-//        do {
-//            let response = try await sutFailure?.getCharacterList(pageNumber: "1")
-//            XCTFail("Expected failure, got \(String(describing: response)) instead")
-//        } catch {
-//            if error is APIError {
-//                XCTAssertEqual(error.localizedDescription, APIError.parseError.localizedDescription)
-//            } else {
-//                XCTFail("Expected parsed error, got \(error) instead")
-//            }
-//        }
-//    }
-//    
-//    func test_seachCharacterFails() async {
-//        do {
-//            let response = try await sutFailure?.searchCharacter(withName: "Peter", and: nil)
-//            XCTFail("Expected failure, got \(String(describing: response)) instead")
-//        } catch {
-//            //Test succeeds
-//        }
-//    }
 }
