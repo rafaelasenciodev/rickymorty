@@ -18,8 +18,8 @@ final class CharacterPresentableItemTests: XCTestCase {
         XCTAssertEqual(presentableItem.name, "Rick Sanchez")
         XCTAssertEqual(presentableItem.origin, "Earth")
         XCTAssertEqual(presentableItem.aliveDescription, "Alive")
-        XCTAssertEqual(presentableItem.statusDescription, "Status: Alive")
-        XCTAssertEqual(presentableItem.speciesDescription, "Species: Human")
+        XCTAssertEqual(presentableItem.statusDescription, "Alive")
+        XCTAssertEqual(presentableItem.speciesDescription, "Human")
         XCTAssertEqual(presentableItem.statusColor, .green)
     }
     
