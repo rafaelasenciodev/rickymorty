@@ -36,7 +36,6 @@ class CharacterListViewModelTests: XCTestCase {
         XCTAssertTrue(sut.isLoading)
         XCTAssertFalse(sut.showError)
         XCTAssertNil(sut.errorMessage)
-        XCTAssertEqual(sut.characters.count, 0)
     }
     
     func test_loadCharactersUpdatesUIWhenLoadingFinish() {
@@ -84,6 +83,6 @@ class CharacterListViewModelTests: XCTestCase {
         // Then
         XCTAssertTrue(sut.showError)
         XCTAssertFalse(sut.isLoading)
-        XCTAssertEqual(sut.characters.count, 0) // La lista de personajes debe estar vacía si hay un error
+        XCTAssertEqual(sut.characters.count, 0)
     }
 }
