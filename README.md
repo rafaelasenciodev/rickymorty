@@ -1,4 +1,10 @@
-# Use Cases
+# RickyMorty App
+
+
+<img width="429" alt="screenshot" src="https://github.com/rafaelasenciodev/rickymorty/assets/167070167/771b3726-1260-443d-8b30-e48e6cac318b">
+
+
+## Use Cases
 
 ## Show Rick and Morty character list
 
@@ -34,9 +40,12 @@ ___________
 |origin|String|
 |image|String|
 
-* Use Cases
+`Origin`
+|name|type|
+|-|:-:|
+|name|String|
+|url|String|
 
-  Get character list
       
 
     
