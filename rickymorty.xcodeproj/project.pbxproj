@@ -37,6 +37,7 @@
 		AF82774A2BD2BB35008980B6 /* CharacterDomainMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF8277492BD2BB35008980B6 /* CharacterDomainMapper.swift */; };
 		AF82774C2BD2BB5B008980B6 /* CharacterDomainErrorMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF82774B2BD2BB5B008980B6 /* CharacterDomainErrorMapper.swift */; };
 		AF8277512BD2BC0E008980B6 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF8277502BD2BC0E008980B6 /* Extensions.swift */; };
+		AFAC7A632BD9078C0074F739 /* SectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFAC7A622BD9078C0074F739 /* SectionView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -82,6 +83,7 @@
 		AF8277492BD2BB35008980B6 /* CharacterDomainMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterDomainMapper.swift; sourceTree = "<group>"; };
 		AF82774B2BD2BB5B008980B6 /* CharacterDomainErrorMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterDomainErrorMapper.swift; sourceTree = "<group>"; };
 		AF8277502BD2BC0E008980B6 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		AFAC7A622BD9078C0074F739 /* SectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -182,6 +184,7 @@
 			isa = PBXGroup;
 			children = (
 				AF2F45B32BD679EC00E630AE /* CharacterDetailView.swift */,
+				AFAC7A622BD9078C0074F739 /* SectionView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -485,6 +488,7 @@
 				AF2F45A62BD4224500E630AE /* CharacterListViewModel.swift in Sources */,
 				AF82774A2BD2BB35008980B6 /* CharacterDomainMapper.swift in Sources */,
 				AF8277432BD2B3C2008980B6 /* CharacterDTO.swift in Sources */,
+				AFAC7A632BD9078C0074F739 /* SectionView.swift in Sources */,
 				AF2F45AA2BD422E800E630AE /* CharacterListView.swift in Sources */,
 				AF3E7E872BD26B5E006E6CFE /* ContentView.swift in Sources */,
 				AF8277402BD28EBB008980B6 /* GetCharacterListRepositoryImp.swift in Sources */,
