@@ -38,6 +38,8 @@
 		AF82774C2BD2BB5B008980B6 /* CharacterDomainErrorMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF82774B2BD2BB5B008980B6 /* CharacterDomainErrorMapper.swift */; };
 		AF8277512BD2BC0E008980B6 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF8277502BD2BC0E008980B6 /* Extensions.swift */; };
 		AFAC7A632BD9078C0074F739 /* SectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFAC7A622BD9078C0074F739 /* SectionView.swift */; };
+		AFAC7A672BD90AB30074F739 /* NSCacheStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFAC7A662BD90AB30074F739 /* NSCacheStorage.swift */; };
+		AFAC7A6A2BD90B210074F739 /* AsyncImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFAC7A692BD90B210074F739 /* AsyncImageView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -84,6 +86,8 @@
 		AF82774B2BD2BB5B008980B6 /* CharacterDomainErrorMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterDomainErrorMapper.swift; sourceTree = "<group>"; };
 		AF8277502BD2BC0E008980B6 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		AFAC7A622BD9078C0074F739 /* SectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionView.swift; sourceTree = "<group>"; };
+		AFAC7A662BD90AB30074F739 /* NSCacheStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSCacheStorage.swift; sourceTree = "<group>"; };
+		AFAC7A692BD90B210074F739 /* AsyncImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsyncImageView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,14 +108,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		AF2F459B2BD2CD5200E630AE /* Infrastructure */ = {
-			isa = PBXGroup;
-			children = (
-				AF2F459C2BD2CD6000E630AE /* Networking */,
-			);
-			path = Infrastructure;
-			sourceTree = "<group>";
-		};
 		AF2F459C2BD2CD6000E630AE /* Networking */ = {
 			isa = PBXGroup;
 			children = (
@@ -125,6 +121,7 @@
 			children = (
 				AF2F45B02BD679C300E630AE /* Screens */,
 				AF2F45AD2BD65B6300E630AE /* ScrollPreferenceKey */,
+				AFAC7A682BD90B110074F739 /* Components */,
 			);
 			path = Presentation;
 			sourceTree = "<group>";
@@ -184,7 +181,6 @@
 			isa = PBXGroup;
 			children = (
 				AF2F45B32BD679EC00E630AE /* CharacterDetailView.swift */,
-				AFAC7A622BD9078C0074F739 /* SectionView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -263,8 +259,8 @@
 		AF3E7E832BD26B5E006E6CFE /* rickymorty */ = {
 			isa = PBXGroup;
 			children = (
+				AFAC7A642BD90A800074F739 /* Base */,
 				AF2F45A32BD4220C00E630AE /* Presentation */,
-				AF2F459B2BD2CD5200E630AE /* Infrastructure */,
 				AF82774D2BD2BB74008980B6 /* Utils */,
 				AF8277312BD28BD5008980B6 /* Domain */,
 				AF82773D2BD28E96008980B6 /* Data */,
@@ -365,6 +361,32 @@
 				AF8277502BD2BC0E008980B6 /* Extensions.swift */,
 			);
 			path = Utils;
+			sourceTree = "<group>";
+		};
+		AFAC7A642BD90A800074F739 /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				AF2F459C2BD2CD6000E630AE /* Networking */,
+				AFAC7A652BD90A9C0074F739 /* Storage */,
+			);
+			path = Base;
+			sourceTree = "<group>";
+		};
+		AFAC7A652BD90A9C0074F739 /* Storage */ = {
+			isa = PBXGroup;
+			children = (
+				AFAC7A662BD90AB30074F739 /* NSCacheStorage.swift */,
+			);
+			path = Storage;
+			sourceTree = "<group>";
+		};
+		AFAC7A682BD90B110074F739 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				AFAC7A622BD9078C0074F739 /* SectionView.swift */,
+				AFAC7A692BD90B210074F739 /* AsyncImageView.swift */,
+			);
+			path = Components;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -489,6 +511,7 @@
 				AF82774A2BD2BB35008980B6 /* CharacterDomainMapper.swift in Sources */,
 				AF8277432BD2B3C2008980B6 /* CharacterDTO.swift in Sources */,
 				AFAC7A632BD9078C0074F739 /* SectionView.swift in Sources */,
+				AFAC7A672BD90AB30074F739 /* NSCacheStorage.swift in Sources */,
 				AF2F45AA2BD422E800E630AE /* CharacterListView.swift in Sources */,
 				AF3E7E872BD26B5E006E6CFE /* ContentView.swift in Sources */,
 				AF8277402BD28EBB008980B6 /* GetCharacterListRepositoryImp.swift in Sources */,
@@ -497,6 +520,7 @@
 				AF8277512BD2BC0E008980B6 /* Extensions.swift in Sources */,
 				AF8277372BD28D15008980B6 /* GetCharacterListUseCase.swift in Sources */,
 				AF2F45AC2BD6521200E630AE /* CharacterViewCell.swift in Sources */,
+				AFAC7A6A2BD90B210074F739 /* AsyncImageView.swift in Sources */,
 				AF2F459E2BD2CD6E00E630AE /* URLSessionHTTPClient.swift in Sources */,
 				AF82773A2BD28E59008980B6 /* GetCharacterListRepository.swift in Sources */,
 				AF2F45AF2BD65B6700E630AE /* ScrollPreferenceKey.swift in Sources */,

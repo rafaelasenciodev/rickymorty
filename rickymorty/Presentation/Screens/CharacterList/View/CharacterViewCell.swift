@@ -10,34 +10,35 @@ import SwiftUI
 struct CharacterViewCell: View {
     
     let item: CharacterPresentableItem
+    @State private var opacity: Double = 0
     
     var body: some View {
-        ZStack(alignment: .bottom) {
-            
-            backgroundImage
-            
-            descriptionInfo
+        VStack {
+            if let url = item.imageURL {
+                AsyncImageView(url: url)
+                    .scaledToFill()
+                    .frame(height: 300)
+                    .overlay(content: {
+                        LinearGradient(gradient: Gradient(colors: [Color.black.opacity(0),
+                                                                   Color.black.opacity(0.3),
+                                                                   Color.black]),
+                                       startPoint: .top,
+                                       endPoint: .bottom)
+                    })
+                    .overlay {
+                        descriptionInfo
+                    }
+                    .clipShape(RoundedRectangle(cornerRadius: 25.0))
+                    .frame(height: 300)
+                    .onAppear {
+                        withAnimation {
+                            opacity = 1
+                        }
+                    }
+                    
+            }
         }
-        .frame(height: 300)
-    }
-    
-    var backgroundImage: some View {
-        AsyncImage(url: item.imageURL) { image in
-            image.resizable()
-        } placeholder: {
-            ProgressView()
-                .frame(maxWidth: .infinity, maxHeight: .infinity)
-        }
-        .scaledToFill()
-        .frame(height: 300)
-        .overlay(
-            LinearGradient(gradient: Gradient(colors: [Color.black.opacity(0),
-                                                       Color.black.opacity(0.3),
-                                                       Color.black]),
-                           startPoint: .top,
-                           endPoint: .bottom)
-        )
-        .clipShape(RoundedRectangle(cornerRadius: 25.0))
+        .opacity(opacity)
     }
     
     var descriptionInfo: some View {
