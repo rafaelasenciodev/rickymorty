@@ -85,7 +85,7 @@ struct CharacterDetailView: View {
                 SectionView(title: "Specie", description: item.speciesDescription)
                     .padding(.vertical, 8)
                 
-                SectionView(title: "Origin", description: item.statusDescription)
+                SectionView(title: "Origin", description: item.origin)
                     .padding(.vertical, 8)
             }
         }
