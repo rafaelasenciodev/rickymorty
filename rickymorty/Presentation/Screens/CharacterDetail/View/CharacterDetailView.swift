@@ -78,14 +78,15 @@ struct CharacterDetailView: View {
         .padding()
         
         List {
-            Section("Personal Information") {
-                SectionView(title: "Status", description: item.statusDescription)
+            Section(LocalizedStringKey("character_detail_info_section")) {
+                SectionView(keyTitle: "character_detail_info_status",
+                            description: item.statusDescription)
                     .padding(.vertical, 8)
                 
-                SectionView(title: "Specie", description: item.speciesDescription)
+                SectionView(keyTitle: "character_detail_info_species", description: item.speciesDescription)
                     .padding(.vertical, 8)
                 
-                SectionView(title: "Origin", description: item.origin)
+                SectionView(keyTitle: "character_detail_info_origin", description: item.origin)
                     .padding(.vertical, 8)
             }
         }

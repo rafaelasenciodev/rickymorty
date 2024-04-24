@@ -7,37 +7,19 @@
 
 import Foundation
 
-final class GetCharacterListUseCase {
+protocol GetCharacterListUseCaseProtocol {
+    func execute(page: String, name: String?) async -> Result<[Character], CharacterDomainError>
+}
+
+final class GetCharacterListUseCase: GetCharacterListUseCaseProtocol {
     
     private let repository: GetCharacterListRepository
     init(repository: GetCharacterListRepository = GetCharacterListRepositoryImp(dataSource: APICharactersDataSource(client: URLSessionHTTPClient()), domainMapper: CharacterDomainMapper(), errorMapper: CharacterDomainErrorMapper())) {
         self.repository = repository
     }
     
-    func loadCharacters(page: String) async -> Result<[Character], CharacterDomainError> {
-        let result = await repository.loadCharacters(page: page, name: nil)
-        
-        guard let characterList = try? result.get() else {
-            guard case .failure(let error) = result else {
-                return .failure(.generic)
-            }
-            return .failure(error)
-        }
-        
-        return .success(characterList)
-    }
-    
-    func searchCharacters(withName name: String, and page: String) async -> Result<[Character], CharacterDomainError> {
-        let result = await repository.loadCharacters(page: page, name: name)
-        
-        guard let characterList = try? result.get() else {
-            guard case .failure(let error) = result else {
-                return .failure(.generic)
-            }
-            return .failure(error)
-        }
-        
-        return .success(characterList)
+    func execute(page: String, name: String? = nil) async -> Result<[Character], CharacterDomainError> {
+        await repository.loadCharacters(page: page, name: name)
     }
     
 }

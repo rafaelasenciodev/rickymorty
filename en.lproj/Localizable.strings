@@ -1,0 +1,17 @@
+/* 
+  Localizable.strings
+  rickymorty
+
+  Created by Rafael Asencio Blancat on 24/4/24.
+  
+*/
+
+"characters_nav_title" = "Characters";
+
+"character_detail_info_section" = "Personal Information";
+"character_detail_info_status" = "Status";
+"character_detail_info_species" = "Species";
+"character_detail_info_origin" = "Origin";
+
+
+"common_continue" = "Continue";

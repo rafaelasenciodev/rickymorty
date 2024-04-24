@@ -28,11 +28,11 @@ struct CharacterListView: View {
             
             scrollView
         }
-        .navigationTitle("Characters")
+        .navigationTitle(LocalizedStringKey("characters_nav_title"))
         .navigationBarTitleDisplayMode(.inline)
         .searchable(text: $searchText)
         .onChange(of: searchText, { oldValue, newValue in
-            searchCharacter(by: newValue)
+            newSearchCharacter(by: newValue)
         })
         .sheet(item: $selectedCharacter) { selectedCharacter in
             CharacterDetailView(item: .init(character: selectedCharacter))
@@ -41,7 +41,7 @@ struct CharacterListView: View {
             Button(role: .cancel) {
                 
             } label: {
-                Text("Continue")
+                Text(LocalizedStringKey("common_continue"))
             }
         })
         .onAppear {
@@ -94,17 +94,8 @@ struct CharacterListView: View {
         }
     }
     
-    @MainActor
-    private func searchCharacter(by name: String) {
-        vm.workItem?.cancel()
-        let task = DispatchWorkItem { [weak vm] in
-            guard let viewModel = vm else { return }
-            Task {
-                await viewModel.searchCharacter(by: name, isFirstLoad: true)
-            }
-        }
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5, execute: task)
-        vm.workItem = task
+    private func newSearchCharacter(by name: String) {
+        vm.newSearch(name: name)
     }
 }
 

@@ -29,7 +29,7 @@ final class CharacterListUseCaseTests: XCTestCase {
                                                                       domainMapper: CharacterDomainMapper(),
                                                                       errorMapper: CharacterDomainErrorMapper()))
         // When
-        let result = await sut.loadCharacters(page: "1")
+        let result = await sut.execute(page: "1", name: nil)
         
         // Then
         switch result {
@@ -49,7 +49,7 @@ final class CharacterListUseCaseTests: XCTestCase {
                                                                       errorMapper: CharacterDomainErrorMapper()))
         
         // When
-        let result = await sut.searchCharacters(withName: "Morty", and: "1")
+        let result = await sut.execute(page: "1", name: "Morty")
         
         // Then
         switch result {
@@ -68,7 +68,7 @@ final class CharacterListUseCaseTests: XCTestCase {
                                                                       domainMapper: CharacterDomainMapper(),
                                                                       errorMapper: CharacterDomainErrorMapper()))
         // When
-        let result = await sut.searchCharacters(withName: "unexsiting character", and: "1")
+        let result = await sut.execute(page: "1", name: "unexisting character")
         
         // Then
         switch result {
