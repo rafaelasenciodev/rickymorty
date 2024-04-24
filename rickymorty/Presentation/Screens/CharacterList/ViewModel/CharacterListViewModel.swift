@@ -14,7 +14,7 @@ import SwiftUI
     var showError: Bool = false
     var errorMessage: String?
     private var currentPage: Int = 1
-    var workItem: DispatchWorkItem?
+    private var workItem: DispatchWorkItem?
     
     private let useCase: GetCharacterListUseCaseProtocol
     init(useCase: GetCharacterListUseCaseProtocol = GetCharacterListUseCase()) {
@@ -75,6 +75,18 @@ import SwiftUI
     }
 
     private var canFetchMoreCharacters: Bool = true
+    
+    func newSearch(name: String) {
+        workItem?.cancel()
+        let task = DispatchWorkItem { [weak self] in
+            guard let self = self else { return }
+            Task {
+                await self.searchCharacter(by: name, isFirstLoad: true)
+            }
+        }
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5, execute: task)
+        workItem = task
+    }
 
     @MainActor
     private func resetSearch() {
