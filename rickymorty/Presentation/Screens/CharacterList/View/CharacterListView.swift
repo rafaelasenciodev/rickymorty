@@ -28,7 +28,7 @@ struct CharacterListView: View {
             
             scrollView
         }
-        .navigationTitle("Characters")
+        .navigationTitle(LocalizedStringKey("characters_nav_title"))
         .navigationBarTitleDisplayMode(.inline)
         .searchable(text: $searchText)
         .onChange(of: searchText, { oldValue, newValue in
@@ -41,7 +41,7 @@ struct CharacterListView: View {
             Button(role: .cancel) {
                 
             } label: {
-                Text("Continue")
+                Text(LocalizedStringKey("common_continue"))
             }
         })
         .onAppear {

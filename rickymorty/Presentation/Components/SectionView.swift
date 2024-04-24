@@ -9,12 +9,12 @@ import SwiftUI
 
 struct SectionView: View {
     
-    let title: String
+    let keyTitle: String
     let description: String
     
     var body: some View {
         HStack {
-            Text(title)
+            Text(LocalizedStringKey(keyTitle))
                 .foregroundStyle(.white)
                 .font(.system(size: 16, weight: .bold))
                 .padding(.horizontal, 8)
