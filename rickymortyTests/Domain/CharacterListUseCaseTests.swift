@@ -78,27 +78,4 @@ final class CharacterListUseCaseTests: XCTestCase {
             XCTFail("Expected success, got \(error.localizedDescription)")
         }
     }
-
-    
-//    func test_getCharacterListFailsWithParsedError() async {
-//        do {
-//            let response = try await sutFailure?.getCharacterList(pageNumber: "1")
-//            XCTFail("Expected failure, got \(String(describing: response)) instead")
-//        } catch {
-//            if error is APIError {
-//                XCTAssertEqual(error.localizedDescription, APIError.parseError.localizedDescription)
-//            } else {
-//                XCTFail("Expected parsed error, got \(error) instead")
-//            }
-//        }
-//    }
-//    
-//    func test_seachCharacterFails() async {
-//        do {
-//            let response = try await sutFailure?.searchCharacter(withName: "Peter", and: nil)
-//            XCTFail("Expected failure, got \(String(describing: response)) instead")
-//        } catch {
-//            //Test succeeds
-//        }
-//    }
 }
