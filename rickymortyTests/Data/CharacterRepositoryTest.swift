@@ -23,12 +23,16 @@ final class CharacterRepositoryTest: XCTestCase {
     }
     
     func test_loadCharactersSucceeds() async {
+        // Given
         sut = GetCharacterListRepositoryImp(dataSource:
                                                 APICharactersDataSource(client: HTTPClientMockCharacterListSuccess()),
                                             domainMapper: CharacterDomainMapper(),
                                             errorMapper: CharacterDomainErrorMapper())
         
+        // When
         let result = await sut.loadCharacters(page: "1", name: "")
+        
+        // Then
         switch result {
         case .success(let characters):
             let receivedCharacter = characters.first?.name
@@ -40,12 +44,16 @@ final class CharacterRepositoryTest: XCTestCase {
     }
     
     func test_loadCharactersFailsWithDecodingError() async {
+        // Given
         sut = GetCharacterListRepositoryImp(dataSource:
                                                 APICharactersDataSource(client: HTTPClientMockCharacterListDecodingFails()),
                                             domainMapper: CharacterDomainMapper(),
                                             errorMapper: CharacterDomainErrorMapper())
         
+        // When
         let result = await sut.loadCharacters(page: "1", name: "")
+        
+        // Then
         switch result {
         case .success:
             XCTFail("Expected failure, got \(result) instead")
@@ -55,12 +63,16 @@ final class CharacterRepositoryTest: XCTestCase {
     }
     
     func test_loadCharactersFailsWithInvalidStatusCode() async {
+        // Given
         sut = GetCharacterListRepositoryImp(dataSource:
                                                 APICharactersDataSource(client: HTTPClientMockCharacterListInvalidStatusCodeFails()),
                                             domainMapper: CharacterDomainMapper(),
                                             errorMapper: CharacterDomainErrorMapper())
         
+        // When
         let result = await sut.loadCharacters(page: "1", name: "")
+        
+        // Then
         switch result {
         case .success:
             XCTFail("Expected failure, got \(result) instead")

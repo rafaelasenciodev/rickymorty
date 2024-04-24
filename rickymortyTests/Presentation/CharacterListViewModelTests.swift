@@ -24,11 +24,15 @@ class CharacterListViewModelTests: XCTestCase {
     }
     
     func test_loadCharactersShowLoader() async {
+        // Given
         sut = .init(useCase: GetCharacterListUseCase(repository:
                                                         GetCharacterListRepositoryImp(dataSource: APICharactersDataSource(client: HTTPClientMockCharacterListSuccess()),
                                                                                       domainMapper: CharacterDomainMapper(),
                                                                                       errorMapper: CharacterDomainErrorMapper())))
+        // When
         sut.loadCharacters()
+        
+        // Then
         XCTAssertTrue(sut.isLoading)
         XCTAssertFalse(sut.showError)
         XCTAssertNil(sut.errorMessage)
@@ -36,11 +40,14 @@ class CharacterListViewModelTests: XCTestCase {
     }
     
     func test_loadCharactersUpdatesUIWhenLoadingFinish() {
+        // Given
         sut = .init(useCase: GetCharacterListUseCase(repository:
                                                         GetCharacterListRepositoryImp(dataSource: APICharactersDataSource(client: HTTPClientMockCharacterListSuccess()),
                                                                                       domainMapper: CharacterDomainMapper(),
                                                                                       errorMapper: CharacterDomainErrorMapper())))
+        // When
         let exp = expectation(description: "wait for completion")
+        
         sut.loadCharacters()
         
         DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
@@ -49,6 +56,7 @@ class CharacterListViewModelTests: XCTestCase {
         
         wait(for: [exp], timeout: 5)
         
+        // Then
         XCTAssertFalse(sut.isLoading)
         XCTAssertFalse(sut.showError)
         XCTAssertNil(sut.errorMessage)
@@ -56,12 +64,15 @@ class CharacterListViewModelTests: XCTestCase {
     }
     
     func testLoadCharacters_Failure() {
+        // Given
         sut = .init(useCase: GetCharacterListUseCase(repository:
                                                         GetCharacterListRepositoryImp(dataSource: APICharactersDataSource(client: HTTPClientMockCharacterListDecodingFails()),
                                                                                       domainMapper: CharacterDomainMapper(),
                                                                                       errorMapper: CharacterDomainErrorMapper())))
         
         let exp = expectation(description: "wait for completion")
+        
+        // When
         sut.loadCharacters()
         
         DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
@@ -69,6 +80,8 @@ class CharacterListViewModelTests: XCTestCase {
         }
         
         wait(for: [exp], timeout: 3)
+        
+        // Then
         XCTAssertTrue(sut.showError)
         XCTAssertFalse(sut.isLoading)
         XCTAssertEqual(sut.characters.count, 0) // La lista de personajes debe estar vacía si hay un error
