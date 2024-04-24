@@ -31,11 +31,11 @@ struct CharacterPresentableItem {
     }
     
     var statusDescription: String {
-        "Status: \(character.status)"
+        character.status
     }
     
     var speciesDescription: String {
-        "Species: \(character.species)"
+        character.species
     }
     
     var statusColor: Color {
@@ -51,38 +51,43 @@ struct CharacterDetailView: View {
     var item: CharacterPresentableItem
     
     var body: some View {
-        ScrollView {
-            VStack(alignment: .leading) {
+        VStack {
+            backgroundImage
+                .clipShape(Circle())
+                .overlay(
+                    Circle()
+                        .stroke(lineWidth: 8)
+                        .fill(item.statusColor)
+                        .overlay(content: {
+                            Text(item.aliveDescription)
+                                .bold()
+                                .foregroundStyle(.white)
+                                .padding(8)
+                                .background(item.statusColor)
+                                .clipShape(RoundedRectangle(cornerRadius: 10))
+                                .frame(maxHeight: .infinity, alignment: .bottom)
+                                .offset(y: 20.0)
+                        })
+                )
+                .padding(.bottom)
+            
+            Text(item.name)
+                .font(.system(size: 30, weight: .black))
+                .foregroundStyle(.white)
+        }
+        .padding()
+        
+        List {
+            Section("Personal Information") {
+                SectionView(title: "Status", description: item.statusDescription)
+                    .padding(.vertical, 8)
                 
-                backgroundImage
-                    .clipShape(Circle())
-                    .overlay(
-                        Circle()
-                            .stroke(lineWidth: 8)
-                            .fill(item.statusColor)
-                            .overlay(content: {
-                                Text(item.aliveDescription)
-                                    .bold()
-                                    .foregroundStyle(.white)
-                                    .padding(8)
-                                    .background(item.statusColor)
-                                    .clipShape(RoundedRectangle(cornerRadius: 10))
-                                    .frame(maxHeight: .infinity, alignment: .bottom)
-                                    .offset(y: 20.0)
-                            })
-                    )
-                    .padding(.bottom)
+                SectionView(title: "Specie", description: item.speciesDescription)
+                    .padding(.vertical, 8)
                 
-                Text(item.name)
-                    .font(.system(size: 30, weight: .black))
-                    .foregroundStyle(.white)
-                
-                Text(item.statusDescription)
-                Text(item.speciesDescription)
-                
+                SectionView(title: "Origin", description: item.statusDescription)
+                    .padding(.vertical, 8)
             }
-            .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .leading)
-            .padding()
         }
         .toolbar(.hidden, for: .navigationBar)
     }
@@ -99,5 +104,5 @@ struct CharacterDetailView: View {
 }
 
 #Preview {
-    CharacterDetailView(item: .init(character: Character(id: 1, name: "Rick", status: "Alive", species: "Human", origin: .init(name: "", url: ""), image: "https://rickandmortyapi.com/api/character/avatar/1.jpeg")))
+    CharacterDetailView(item: .init(character: Character(id: 1, name: "Rick", status: "Alive", species: "Human", origin: .init(name: "Earth", url: ""), image: "https://rickandmortyapi.com/api/character/avatar/1.jpeg")))
 }

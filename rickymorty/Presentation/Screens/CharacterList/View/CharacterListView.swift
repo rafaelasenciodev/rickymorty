@@ -68,7 +68,7 @@ struct CharacterListView: View {
                 if value <= -threshold {
                     Task {
                         if searchText.isEmpty {
-                            await vm.loadCharacters()
+                            vm.loadCharacters()
                         } else {
                             await self.vm.searchCharacter(by: searchText, isFirstLoad: false)
                         }

@@ -54,9 +54,9 @@ final class CharacterRepositoryTest: XCTestCase {
         }
     }
     
-    func test_loadCharactersFailsWithInvalidURL() async {
+    func test_loadCharactersFailsWithInvalidStatusCode() async {
         sut = GetCharacterListRepositoryImp(dataSource:
-                                                APICharactersDataSource(client: HTTPClientMockCharacterListInvalidURLFails()),
+                                                APICharactersDataSource(client: HTTPClientMockCharacterListInvalidStatusCodeFails()),
                                             domainMapper: CharacterDomainMapper(),
                                             errorMapper: CharacterDomainErrorMapper())
         
