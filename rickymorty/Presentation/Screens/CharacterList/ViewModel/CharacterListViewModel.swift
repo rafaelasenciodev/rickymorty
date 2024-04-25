@@ -14,7 +14,7 @@ import SwiftUI
     var showError: Bool = false
     var errorMessage: String?
     private var currentPage: Int = 1
-    var workItem: DispatchWorkItem?
+    private(set) var workItem: DispatchWorkItem?
     
     private let useCase: GetCharacterListUseCase
     init(useCase: GetCharacterListUseCase = GetCharacterListUseCase()) {

@@ -85,4 +85,43 @@ class CharacterListViewModelTests: XCTestCase {
         XCTAssertFalse(sut.isLoading)
         XCTAssertEqual(sut.characters.count, 0)
     }
+    
+    func testEmptySearchReloadInitialCharacters() {
+        // Given
+        sut = .init(useCase: GetCharacterListUseCase(repository:
+                                                        GetCharacterListRepositoryImp(dataSource: APICharactersDataSource(client: HTTPClientMockCharacterListSuccess()),
+                                                                                      domainMapper: CharacterDomainMapper(),
+                                                                                      errorMapper: CharacterDomainErrorMapper())))
+        let emptySearch = ""
+        
+        // When
+        Task {
+            await sut.searchCharacter(by: emptySearch, isFirstLoad: true)
+        }
+        
+        // Then
+        let exp = expectation(description: "wait for completion")
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+            exp.fulfill()
+        }
+        
+        wait(for: [exp], timeout: 5)
+        XCTAssertFalse(sut.characters.isEmpty)
+    }
+    
+    func testSearchCharactersCreatesWorkItem() {
+        // Given
+        sut = .init(useCase: GetCharacterListUseCase(repository:
+                                                        GetCharacterListRepositoryImp(dataSource: APICharactersDataSource(client: HTTPClientMockCharacterListSuccess()),
+                                                                                      domainMapper: CharacterDomainMapper(),
+                                                                                      errorMapper: CharacterDomainErrorMapper())))
+        XCTAssertNil(sut.workItem)
+        
+        // When
+        sut.newSearch(name: "Rick")
+        
+        // Then
+        
+        XCTAssertNotNil(sut.workItem)
+    }
 }
