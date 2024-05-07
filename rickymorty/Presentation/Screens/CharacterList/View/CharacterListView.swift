@@ -67,7 +67,7 @@ struct CharacterListView: View {
     var scrollViewDetection: some View {
         GeometryReader { reader -> Color in
             let minY = reader.frame(in: .global).minY
-            let height = UIScreen.main.bounds.height / 1.3
+            let height = UIScreen.main.bounds.height
             
             if !charactersResult.isEmpty && minY < height {
                 Task {
