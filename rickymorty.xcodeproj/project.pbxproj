@@ -27,6 +27,7 @@
 		AF3E7E872BD26B5E006E6CFE /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF3E7E862BD26B5E006E6CFE /* ContentView.swift */; };
 		AF3E7E892BD26B61006E6CFE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AF3E7E882BD26B61006E6CFE /* Assets.xcassets */; };
 		AF3E7E8C2BD26B61006E6CFE /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AF3E7E8B2BD26B61006E6CFE /* Preview Assets.xcassets */; };
+		AF78DA642BEA3CFF00713637 /* DebounceState.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF78DA632BEA3CFF00713637 /* DebounceState.swift */; };
 		AF8277342BD28BF6008980B6 /* Character.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF8277332BD28BF6008980B6 /* Character.swift */; };
 		AF8277372BD28D15008980B6 /* GetCharacterListUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF8277362BD28D15008980B6 /* GetCharacterListUseCase.swift */; };
 		AF82773A2BD28E59008980B6 /* GetCharacterListRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF8277392BD28E59008980B6 /* GetCharacterListRepository.swift */; };
@@ -77,6 +78,7 @@
 		AF3E7E862BD26B5E006E6CFE /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		AF3E7E882BD26B61006E6CFE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		AF3E7E8B2BD26B61006E6CFE /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		AF78DA632BEA3CFF00713637 /* DebounceState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DebounceState.swift; sourceTree = "<group>"; };
 		AF8277332BD28BF6008980B6 /* Character.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Character.swift; sourceTree = "<group>"; };
 		AF8277362BD28D15008980B6 /* GetCharacterListUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetCharacterListUseCase.swift; sourceTree = "<group>"; };
 		AF8277392BD28E59008980B6 /* GetCharacterListRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetCharacterListRepository.swift; sourceTree = "<group>"; };
@@ -363,6 +365,7 @@
 			isa = PBXGroup;
 			children = (
 				AF8277502BD2BC0E008980B6 /* Extensions.swift */,
+				AF78DA632BEA3CFF00713637 /* DebounceState.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -512,6 +515,7 @@
 				AF2F45B42BD679EC00E630AE /* CharacterDetailView.swift in Sources */,
 				AF8277342BD28BF6008980B6 /* Character.swift in Sources */,
 				AF2F459A2BD2CAC600E630AE /* CharacterResponseDTO.swift in Sources */,
+				AF78DA642BEA3CFF00713637 /* DebounceState.swift in Sources */,
 				AF82774C2BD2BB5B008980B6 /* CharacterDomainErrorMapper.swift in Sources */,
 				AF2F45A62BD4224500E630AE /* CharacterListViewModel.swift in Sources */,
 				AF82774A2BD2BB35008980B6 /* CharacterDomainMapper.swift in Sources */,

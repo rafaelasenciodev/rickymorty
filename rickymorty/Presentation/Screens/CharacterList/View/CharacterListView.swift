@@ -12,7 +12,8 @@ struct CharacterListView: View {
     @Bindable var vm: CharacterListViewModel
     @State var contentHasScrolled = false
     @State var selectedCharacter: Character?
-    @State private var searchText: String = ""
+//    @State private var searchText: String = ""
+    @StateObject private var filterText = DebounceState(initialValue: "")
     
     private var charactersResult: [Character] {
         vm.characters
@@ -30,8 +31,8 @@ struct CharacterListView: View {
         }
         .navigationTitle(LocalizedStringKey("characters_nav_title"))
         .navigationBarTitleDisplayMode(.inline)
-        .searchable(text: $searchText)
-        .onChange(of: searchText, { oldValue, newValue in
+        .searchable(text: $filterText.currentValue)
+        .onChange(of: filterText.debouncedValue, { oldValue, newValue in
             newSearchCharacter(by: newValue)
         })
         .sheet(item: $selectedCharacter) { selectedCharacter in
@@ -67,10 +68,10 @@ struct CharacterListView: View {
                 let threshold = 0.8 * estimatedContentHeight
                 if value <= -threshold {
                     Task {
-                        if searchText.isEmpty {
+                        if filterText.debouncedValue.isEmpty {
                             await vm.loadCharacters()
                         } else {
-                            await self.vm.searchCharacter(by: searchText, isFirstLoad: false)
+                            await self.vm.searchCharacter(by: filterText.debouncedValue, isFirstLoad: false)
                         }
                     }
                 }
@@ -95,7 +96,9 @@ struct CharacterListView: View {
     }
     
     private func newSearchCharacter(by name: String) {
-        vm.newSearch(name: name)
+        Task {
+            await vm.searchCharacter(by: name, isFirstLoad:true)
+        }
     }
     
     private func loadCharacters() {
