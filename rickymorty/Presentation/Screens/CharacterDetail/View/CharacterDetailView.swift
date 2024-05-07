@@ -51,34 +51,11 @@ struct CharacterDetailView: View {
     var item: CharacterPresentableItem
     
     var body: some View {
-        VStack {
-            backgroundImage
-                .clipShape(Circle())
-                .overlay(
-                    Circle()
-                        .stroke(lineWidth: 8)
-                        .fill(item.statusColor)
-                        .overlay(content: {
-                            Text(item.aliveDescription)
-                                .bold()
-                                .foregroundStyle(.white)
-                                .padding(8)
-                                .background(item.statusColor)
-                                .clipShape(RoundedRectangle(cornerRadius: 10))
-                                .frame(maxHeight: .infinity, alignment: .bottom)
-                                .offset(y: 20.0)
-                        })
-                )
-                .padding(.bottom)
-            
-            Text(item.name)
-                .font(.system(size: 30, weight: .black))
-                .foregroundStyle(.white)
-        }
-        .padding()
-        
         List {
-            Section(LocalizedStringKey("character_detail_info_section")) {
+            
+            Section {
+                headerTitle
+                
                 SectionView(keyTitle: "character_detail_info_status",
                             description: item.statusDescription)
                     .padding(.vertical, 8)
@@ -88,9 +65,31 @@ struct CharacterDetailView: View {
                 
                 SectionView(keyTitle: "character_detail_info_origin", description: item.origin)
                     .padding(.vertical, 8)
+            } header: {
+                headerView
+                .padding()
+                .frame(maxWidth: .infinity)
             }
+            .listRowSeparator(.hidden)
         }
+        .scrollIndicators(.hidden)
         .toolbar(.hidden, for: .navigationBar)
+    }
+    
+    var headerTitle: some View {
+        Text(LocalizedStringKey("character_detail_info_section"))
+            .font(.system(size: 18, weight: .bold))
+            .foregroundStyle(.secondary)
+    }
+    
+    var headerView: some View {
+        VStack(alignment: .center) {
+            backgroundImage
+                .padding(.bottom)
+            
+            Text(item.name)
+                .font(.system(size: 30, weight: .black))
+        }
     }
     
     var backgroundImage: some View {
@@ -100,6 +99,23 @@ struct CharacterDetailView: View {
             ProgressView()
                 .frame(maxWidth: .infinity, maxHeight: .infinity)
         }
+        .frame(width: 300, height: 300)
+        .clipShape(Circle())
+        .overlay(
+            Circle()
+                .stroke(lineWidth: 8)
+                .fill(item.statusColor)
+                .overlay(content: {
+                    Text(item.aliveDescription)
+                        .bold()
+                        .foregroundStyle(.white)
+                        .padding(8)
+                        .background(item.statusColor)
+                        .clipShape(RoundedRectangle(cornerRadius: 10))
+                        .frame(maxHeight: .infinity, alignment: .bottom)
+                        .offset(y: 20.0)
+                })
+        )
         .scaledToFill()
     }
 }

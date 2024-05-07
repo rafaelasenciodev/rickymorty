@@ -16,10 +16,11 @@ struct SectionView: View {
         HStack {
             Text(LocalizedStringKey(keyTitle))
                 .foregroundStyle(.white)
+                .frame(width: 70)
                 .font(.system(size: 16, weight: .bold))
                 .padding(.horizontal, 8)
                 .padding(.vertical, 4)
-                .background(.gray.opacity(0.5))
+                .background(.gray)
                 .clipShape(RoundedRectangle(cornerRadius: 12))
          
             Text(description)

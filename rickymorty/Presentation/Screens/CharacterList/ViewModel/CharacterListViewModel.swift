@@ -14,33 +14,28 @@ import SwiftUI
     var showError: Bool = false
     var errorMessage: String?
     private var currentPage: Int = 1
-    private var workItem: DispatchWorkItem?
     
     private let useCase: GetCharacterListUseCaseProtocol
     init(useCase: GetCharacterListUseCaseProtocol = GetCharacterListUseCase()) {
         self.useCase = useCase
     }
     
-    
-    func loadCharacters() {
+    @MainActor
+    func loadCharacters() async {
         guard !isLoading else { return }
         self.isLoading = true
         self.showError = false
-       
-        Task {
-            let result = await useCase.execute(page: "\(currentPage)", name: nil)
-            await MainActor.run {
-                switch result {
-                case .success(let characters):
-                    self.isLoading = false
-                    self.characters += characters
-                    self.currentPage += 1
-                case .failure(let error):
-                    self.isLoading = false
-                    self.showError = true
-                    self.errorMessage = error.localizedDescription
-                }
-            }
+        
+        let result = await useCase.execute(page: "\(currentPage)", name: nil)
+        switch result {
+        case .success(let characters):
+            self.isLoading = false
+            self.characters += characters
+            self.currentPage += 1
+        case .failure(let error):
+            self.isLoading = false
+            self.showError = true
+            self.errorMessage = error.localizedDescription
         }
     }
     
@@ -75,25 +70,15 @@ import SwiftUI
     }
 
     private var canFetchMoreCharacters: Bool = true
-    
-    func newSearch(name: String) {
-        workItem?.cancel()
-        let task = DispatchWorkItem { [weak self] in
-            guard let self = self else { return }
-            Task {
-                await self.searchCharacter(by: name, isFirstLoad: true)
-            }
-        }
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5, execute: task)
-        workItem = task
-    }
 
     @MainActor
     private func resetSearch() {
         canFetchMoreCharacters = true
         characters = []
         currentPage = 1
-        loadCharacters()
+        Task {
+            await loadCharacters()
+        }
     }
     
     private func handleError() async {
