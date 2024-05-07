@@ -10,9 +10,7 @@ import SwiftUI
 struct CharacterListView: View {
     
     @Bindable var vm: CharacterListViewModel
-    @State var contentHasScrolled = false
     @State var selectedCharacter: Character?
-//    @State private var searchText: String = ""
     @StateObject private var filterText = DebounceState(initialValue: "")
     
     private var charactersResult: [Character] {
@@ -52,34 +50,38 @@ struct CharacterListView: View {
     
     var scrollView: some View {
         ScrollView {
-            scrollDetectionView
-            characterListView
-        }.coordinateSpace(.named("scroll"))
+            VStack {
+                characterListView
+                
+                scrollViewDetection
+                
+                if vm.isLoading {
+                    ProgressView()
+                        .tint(.white)
+                        .frame(width: 50, height: 50)
+                }
+            }
+        }
     }
     
-    var scrollDetectionView: some View {
-        GeometryReader { proxy in
-            let offset = proxy.frame(in: .named("scroll")).minY
-            Color.clear.preference(key: ScrollPreferenceKey.self, value: offset)
-        }
-        .onPreferenceChange(ScrollPreferenceKey.self, perform: { value in
-            withAnimation(.easeInOut) {
-                let estimatedContentHeight = CGFloat(charactersResult.count * 300)
-                let threshold = 0.8 * estimatedContentHeight
-                if value <= -threshold {
-                    Task {
-                        if filterText.debouncedValue.isEmpty {
-                            await vm.loadCharacters()
-                        } else {
-                            await self.vm.searchCharacter(by: filterText.debouncedValue, isFirstLoad: false)
-                        }
+    var scrollViewDetection: some View {
+        GeometryReader { reader -> Color in
+            let minY = reader.frame(in: .global).minY
+            let height = UIScreen.main.bounds.height / 1.3
+            
+            if !charactersResult.isEmpty && minY < height {
+                Task {
+                    if filterText.debouncedValue.isEmpty {
+                        await vm.loadCharacters()
+                    } else {
+                        await self.vm.searchCharacter(by: filterText.debouncedValue, isFirstLoad: false)
                     }
                 }
-                contentHasScrolled = value < 0
             }
-        })
+            return Color.clear
+        }
+        .frame(width: 20, height: 20)
     }
-    
     var characterListView: some View {
         ForEach(Array(charactersResult.enumerated()), id: \.offset) { index, character in
             
@@ -88,10 +90,10 @@ struct CharacterListView: View {
                 .onTapGesture {
                     selectedCharacter = character
                 }
-            if vm.isLoading {
-                ProgressView()
-                    .tint(.orange)
-            }
+//            if vm.isLoading {
+//                ProgressView()
+//                    .tint(.orange)
+//            }
         }
     }
     

@@ -15,7 +15,6 @@
 		AF2F45A62BD4224500E630AE /* CharacterListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF2F45A52BD4224500E630AE /* CharacterListViewModel.swift */; };
 		AF2F45AA2BD422E800E630AE /* CharacterListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF2F45A92BD422E800E630AE /* CharacterListView.swift */; };
 		AF2F45AC2BD6521200E630AE /* CharacterViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF2F45AB2BD6521200E630AE /* CharacterViewCell.swift */; };
-		AF2F45AF2BD65B6700E630AE /* ScrollPreferenceKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF2F45AE2BD65B6700E630AE /* ScrollPreferenceKey.swift */; };
 		AF2F45B42BD679EC00E630AE /* CharacterDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF2F45B32BD679EC00E630AE /* CharacterDetailView.swift */; };
 		AF2F45BC2BD7D9CA00E630AE /* CharacterRepositoryTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF2F45BB2BD7D9CA00E630AE /* CharacterRepositoryTest.swift */; };
 		AF2F45C52BD7DACF00E630AE /* HTTPClientMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF2F45C42BD7DACF00E630AE /* HTTPClientMock.swift */; };
@@ -64,7 +63,6 @@
 		AF2F45A52BD4224500E630AE /* CharacterListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterListViewModel.swift; sourceTree = "<group>"; };
 		AF2F45A92BD422E800E630AE /* CharacterListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterListView.swift; sourceTree = "<group>"; };
 		AF2F45AB2BD6521200E630AE /* CharacterViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterViewCell.swift; sourceTree = "<group>"; };
-		AF2F45AE2BD65B6700E630AE /* ScrollPreferenceKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollPreferenceKey.swift; sourceTree = "<group>"; };
 		AF2F45B32BD679EC00E630AE /* CharacterDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterDetailView.swift; sourceTree = "<group>"; };
 		AF2F45B92BD7D9CA00E630AE /* rickymortyTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = rickymortyTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		AF2F45BB2BD7D9CA00E630AE /* CharacterRepositoryTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterRepositoryTest.swift; sourceTree = "<group>"; };
@@ -125,7 +123,6 @@
 			isa = PBXGroup;
 			children = (
 				AF2F45B02BD679C300E630AE /* Screens */,
-				AF2F45AD2BD65B6300E630AE /* ScrollPreferenceKey */,
 				AFAC7A682BD90B110074F739 /* Components */,
 			);
 			path = Presentation;
@@ -155,14 +152,6 @@
 				AF2F45AB2BD6521200E630AE /* CharacterViewCell.swift */,
 			);
 			path = View;
-			sourceTree = "<group>";
-		};
-		AF2F45AD2BD65B6300E630AE /* ScrollPreferenceKey */ = {
-			isa = PBXGroup;
-			children = (
-				AF2F45AE2BD65B6700E630AE /* ScrollPreferenceKey.swift */,
-			);
-			path = ScrollPreferenceKey;
 			sourceTree = "<group>";
 		};
 		AF2F45B02BD679C300E630AE /* Screens */ = {
@@ -533,7 +522,6 @@
 				AFAC7A6A2BD90B210074F739 /* AsyncImageView.swift in Sources */,
 				AF2F459E2BD2CD6E00E630AE /* URLSessionHTTPClient.swift in Sources */,
 				AF82773A2BD28E59008980B6 /* GetCharacterListRepository.swift in Sources */,
-				AF2F45AF2BD65B6700E630AE /* ScrollPreferenceKey.swift in Sources */,
 				AF3E7E852BD26B5E006E6CFE /* rickymortyApp.swift in Sources */,
 				AF8277482BD2B474008980B6 /* APIDataSource.swift in Sources */,
 				AF2F45A22BD3F7AB00E630AE /* Origin.swift in Sources */,
