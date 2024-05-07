@@ -23,17 +23,19 @@ class CharacterListViewModelTests: XCTestCase {
         super.tearDown()
     }
     
-    func test_loadCharactersShowLoader() async {
+    func test_loadCharactersHideLoader() {
         // Given
         sut = .init(useCase: GetCharacterListUseCase(repository:
                                                         GetCharacterListRepositoryImp(dataSource: APICharactersDataSource(client: HTTPClientMockCharacterListSuccess()),
                                                                                       domainMapper: CharacterDomainMapper(),
                                                                                       errorMapper: CharacterDomainErrorMapper())))
         // When
-        sut.loadCharacters()
+        Task {
+            await sut.loadCharacters()
+        }
         
         // Then
-        XCTAssertTrue(sut.isLoading)
+        XCTAssertFalse(sut.isLoading)
         XCTAssertFalse(sut.showError)
         XCTAssertNil(sut.errorMessage)
     }
@@ -47,7 +49,9 @@ class CharacterListViewModelTests: XCTestCase {
         // When
         let exp = expectation(description: "wait for completion")
         
-        sut.loadCharacters()
+        Task {
+            await sut.loadCharacters()
+        }
         
         DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
             exp.fulfill()
@@ -72,7 +76,9 @@ class CharacterListViewModelTests: XCTestCase {
         let exp = expectation(description: "wait for completion")
         
         // When
-        sut.loadCharacters()
+        Task {
+            await sut.loadCharacters()
+        }
         
         DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
             exp.fulfill()

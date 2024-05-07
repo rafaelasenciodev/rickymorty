@@ -44,8 +44,8 @@ struct CharacterListView: View {
                 Text(LocalizedStringKey("common_continue"))
             }
         })
-        .onAppear {
-            vm.loadCharacters()
+        .task {
+            loadCharacters()
         }
     }
     
@@ -68,7 +68,7 @@ struct CharacterListView: View {
                 if value <= -threshold {
                     Task {
                         if searchText.isEmpty {
-                            vm.loadCharacters()
+                            await vm.loadCharacters()
                         } else {
                             await self.vm.searchCharacter(by: searchText, isFirstLoad: false)
                         }
@@ -96,6 +96,12 @@ struct CharacterListView: View {
     
     private func newSearchCharacter(by name: String) {
         vm.newSearch(name: name)
+    }
+    
+    private func loadCharacters() {
+        Task {
+            await vm.loadCharacters()
+        }
     }
 }
 

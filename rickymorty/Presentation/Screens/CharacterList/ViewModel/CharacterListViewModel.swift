@@ -21,26 +21,22 @@ import SwiftUI
         self.useCase = useCase
     }
     
-    
-    func loadCharacters() {
+    @MainActor
+    func loadCharacters() async {
         guard !isLoading else { return }
         self.isLoading = true
         self.showError = false
-       
-        Task {
-            let result = await useCase.execute(page: "\(currentPage)", name: nil)
-            await MainActor.run {
-                switch result {
-                case .success(let characters):
-                    self.isLoading = false
-                    self.characters += characters
-                    self.currentPage += 1
-                case .failure(let error):
-                    self.isLoading = false
-                    self.showError = true
-                    self.errorMessage = error.localizedDescription
-                }
-            }
+        
+        let result = await useCase.execute(page: "\(currentPage)", name: nil)
+        switch result {
+        case .success(let characters):
+            self.isLoading = false
+            self.characters += characters
+            self.currentPage += 1
+        case .failure(let error):
+            self.isLoading = false
+            self.showError = true
+            self.errorMessage = error.localizedDescription
         }
     }
     
@@ -93,7 +89,9 @@ import SwiftUI
         canFetchMoreCharacters = true
         characters = []
         currentPage = 1
-        loadCharacters()
+        Task {
+            await loadCharacters()
+        }
     }
     
     private func handleError() async {
